@@ -1,0 +1,33 @@
+class ProductPage {
+    // Mapeamento dos campos de input
+    getProductNameField() {
+        return cy.get('//*[@id="inputNome"]');
+    }
+
+    getProductValueField() {
+        return cy.get('//*[@id="inputPreco"]');
+    }
+
+    getExpirationDateField() {
+        return cy.get('//*[@id="inputValidade"]');
+    }
+
+    // Ações
+    enterProductName(name) {
+        this.getProductNameField().clear().type(name);
+    }
+
+    enterProductValue(value) {
+        this.getProductValueField().clear().type(value);
+    }
+
+    enterExpirationDate(date) {
+        this.getExpirationDateField().clear().type(date);
+    }
+
+    submitForm() {
+        cy.get('//*[@id="form"]/button').click();
+    }
+}
+
+export default ProductPage;
